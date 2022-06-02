@@ -25,7 +25,7 @@ Phase 3: 經過phase 1和phase2之後，雙方已經產生了加密key，因而�
 當Alice (slave)想與Bob (master)建立secure connection時，若使用legacy authticatoin [2]，此時需要Alice對Bob進行authentication；Bob也需要對Alice進行authentication，但藍芽規範中並未要求雙方皆須進行legacy authentication，因此Charlie可以假冒成Bob (master)，並不需要進行authentication。若Charlie想假冒成Alice (slave)則可以利用藍芽中的role switch，再完成前述步驟。
 
 #### BIAS Downgrade on Secure Connection:
-secure connection使用了比legacy secure connection更為安全的加密演算法，此外也提供了雙方須進行authentication的規範。但在規範中，secure connection並未要求雙方的背並需永遠使用secure connection。因此，Alice (slave)與Bob (master)在進行secure connection時，也可以使用legacy secure connection即可。而Charlie怎利用此方式來假冒Alice或者假冒Bob。
+secure connection使用了比legacy secure connection更為安全的加密演算法，此外也提供了雙方須進行authentication的規範。但在規範中，secure connection並未要求雙方的背並需永遠使用secure connection。因此，Alice (slave)與Bob (master)在進行secure connection時，也可以使用legacy secure connection即可。而Charlie利用此方式先downgrade使用legacy secure connection來假冒Alice或者假冒Bob。
 
 ##### 參考資料：
 [1] Antonioli, Daniele, Nils Ole Tippenhauer, and Kasper Rasmussen. "BIAS: bluetooth impersonation attacks." 2020 IEEE Symposium on Security and Privacy (SP). IEEE, 2020.
